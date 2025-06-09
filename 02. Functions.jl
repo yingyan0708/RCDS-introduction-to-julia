@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.20.4
+# v0.20.8
 
 using Markdown
 using InteractiveUtils
@@ -23,13 +23,21 @@ The first uses the `function` block. Don't forget the `end` keyword to close the
 """
 
 # ╔═╡ 41fcdb73-1fd7-4427-9121-2389fdb2c6da
-
+"""
+	say_hi(name)
+	Say hi to `name`
+"""
+function say_hi(name)
+	println("Hi $(name)!")
+end
 
 # ╔═╡ d4661b4e-90b1-4c01-8357-25cc2564b575
-
+say_hi("Ying Yan")
 
 # ╔═╡ ac423cd7-387c-48d1-b5dd-480f6de01092
-
+function square_it(x)
+	x ^ 2
+end
 
 # ╔═╡ 8f7a82da-2553-4f63-9a65-2310c768b442
 md"""
@@ -43,7 +51,7 @@ Have a look:
 """
 
 # ╔═╡ 5cb275d2-f77c-4c41-a72c-df34109242fc
-
+square_it(4)
 
 # ╔═╡ 3df41292-8099-42ff-8037-c9992c102030
 md"""
@@ -62,7 +70,7 @@ What do we think the output of `another_square(2)` will return? Try it below.
 """
 
 # ╔═╡ cde6390c-32f9-455d-8412-b6c273a91432
-
+another_square(2)
 
 # ╔═╡ 8fe7f524-d075-4685-834f-48607d873567
 md"""
@@ -73,7 +81,7 @@ Fix the code in the cell below to make the function work as expected.
 
 # ╔═╡ 128a3167-c6ff-46e6-b4e6-47d38dfc3f1f
 function explicit_square(x)
-	x ^ 2 # TODO: Fix this line
+	return x ^ 2 # TODO: Fix this line
 	y = 10
 end
 
@@ -90,10 +98,10 @@ We could have defined the above functions like so:
 """
 
 # ╔═╡ 639a498a-877b-4b3c-9d4a-974595f70228
-
+say_hi_again(name) = println("Hi again $(name)!")
 
 # ╔═╡ 8d9cf0df-bd73-41e5-99d0-f0d2053f57ea
-
+say_hi_again("Ying Yan")
 
 # ╔═╡ 05e47f0e-69b2-4afc-aa56-155269a1db51
 
@@ -116,13 +124,13 @@ Anonymous functions are so called because they are not named - useful if you don
 """
 
 # ╔═╡ 75f29bba-6952-4839-be37-6aaa422ffbfc
-
+hi_again = name -> println("Hello for a final time $name")
 
 # ╔═╡ 351ca795-7a46-4968-8435-70406e32bf93
-
+x -> x^2
 
 # ╔═╡ ba3115af-240a-447c-be79-44604a2e6f08
-
+hi_again("Joe")
 
 # ╔═╡ 9ca5c34a-d81c-4c32-b9a5-cbef54cba853
 
@@ -136,14 +144,14 @@ md"""
 """
 
 # ╔═╡ 6926ee86-e795-457a-86fc-a7241cbe6b51
-let
-	r = 3.09
+function find_area(r)
 	area = π * r ^ 2
 	round(area, digits=2)
 end	
 
 # ╔═╡ d533671b-48b5-451a-a9ff-01443a146a8b
 # Use this cell to call your function
+find_area(3)
 
 # ╔═╡ b8b9fb7f-4e9f-4f0d-b53b-7f6b35824daf
 md"""
@@ -166,6 +174,7 @@ end
 
 # ╔═╡ 459a3757-f43d-4fc9-95a9-2b4ad86a6344
 ## YOUR CODE GOES HERE
+do_some_math(5, "to the power of 10", x -> x^10)
 
 # ╔═╡ b653fc4a-ecca-4366-8bcf-37d03972e222
 md"""
@@ -184,7 +193,7 @@ For example, `say_hi()` works on this character from a popular musical.
 """
 
 # ╔═╡ d050a89c-a221-4443-9c30-2fb960a323f7
-
+say_hi(122245)
 
 # ╔═╡ 4f39208e-84bf-4f91-9970-aa61342965b5
 md"""
@@ -194,7 +203,7 @@ This is because the `*` operator is defined for string concatenation (joining st
 """
 
 # ╔═╡ fcacb276-d701-4caa-bbb8-24926a88f7f4
-
+square_it("Hay")
 
 # ╔═╡ 01123b4b-2112-4034-990d-d255f8a88176
 md"""
@@ -202,11 +211,27 @@ Sadly, I cannot `round()` my surname to simplify it.
 """
 
 # ╔═╡ d91d4423-b334-4a6d-a8df-82806d1a30a2
-
+round("Hay")
 
 # ╔═╡ 15a20987-d560-429f-bc79-d67c70207382
 md"""
 We'll explore more of this when we look at multiple dispatch tomorrow.
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.11.5"
+manifest_format = "2.0"
+project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+
+[deps]
 """
 
 # ╔═╡ Cell order:
@@ -247,3 +272,5 @@ We'll explore more of this when we look at multiple dispatch tomorrow.
 # ╟─01123b4b-2112-4034-990d-d255f8a88176
 # ╠═d91d4423-b334-4a6d-a8df-82806d1a30a2
 # ╟─15a20987-d560-429f-bc79-d67c70207382
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002
