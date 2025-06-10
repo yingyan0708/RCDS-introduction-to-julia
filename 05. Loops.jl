@@ -1,5 +1,5 @@
 ### A Pluto.jl notebook ###
-# v0.19.38
+# v0.20.8
 
 using Markdown
 using InteractiveUtils
@@ -50,6 +50,9 @@ md"""
 
 # ╔═╡ 8fe71b97-855a-4185-aa5c-92045302d4ef
 ## YOUR CODE GOES HERE
+for i in 1:10
+	println(i)
+end
 
 # ╔═╡ 42ee3b22-fe61-410a-9839-fb928cbf5791
 md"""
@@ -75,7 +78,7 @@ As with most things we've seen so far, there is another way. Comprehensions let 
 """
 
 # ╔═╡ 066de6ab-f018-4945-be8c-cdef4e48b7fb
-
+squares = [value ^ 2 for value in 1:8]
 
 # ╔═╡ 66032c7f-f553-47f6-8955-df41ae466182
 
@@ -86,7 +89,7 @@ And even our ever popular matrix of powers:
 """
 
 # ╔═╡ 84f9f10e-4e98-4d1e-9640-64de48583384
-
+powers = [value ^ pow for value in 1:8, pow in 1:3]
 
 # ╔═╡ 652545be-5a14-4684-a648-c9821463d489
 md"""# The element type
@@ -101,7 +104,7 @@ We can modify our `powers` array, by updating it at some index.
 """
 
 # ╔═╡ 7258a3fa-a821-4a99-a49d-c6955cf742ec
-
+powers[1, 1] = 5.0
 
 # ╔═╡ 2ec0ddac-0b47-446a-a182-5d0760fac3d9
 md"""
@@ -165,6 +168,18 @@ md"""
 
 # ╔═╡ f6767d55-ebaa-4d72-80eb-49f0d4643c13
 ## YOUR CODE GOES HERE
+begin
+	a_matrix = zeros(Int, 3, 3)
+	for i in 1:3
+		for j in 1:3
+			a_matrix[j, i] = i + (3 * (j - 1))
+		end
+	end
+	a_matrix
+end
+
+# ╔═╡ d3f96eb8-6f14-4926-a596-c462b7fc2eb7
+
 
 # ╔═╡ 9288a8f1-8644-46db-b0c0-a94ef801eb9d
 let defined = @isdefined a_matrix
@@ -184,6 +199,7 @@ md"""
 
 # ╔═╡ 02e92886-6053-485b-9515-4429e3cd9777
 ## YOUR CODE GOES HERE
+squares_arr = [value ^ 2 for value in 1:100]
 
 # ╔═╡ a07f6902-cb19-4f45-ac4c-97e0d365719d
 let defined = @isdefined squares_arr
@@ -192,6 +208,22 @@ let defined = @isdefined squares_arr
 		$(Markdown.MD(Markdown.Admonition("correct", "Well done!!", [])))"""
 	end
 end
+
+# ╔═╡ 00000000-0000-0000-0000-000000000001
+PLUTO_PROJECT_TOML_CONTENTS = """
+[deps]
+"""
+
+# ╔═╡ 00000000-0000-0000-0000-000000000002
+PLUTO_MANIFEST_TOML_CONTENTS = """
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.11.5"
+manifest_format = "2.0"
+project_hash = "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+
+[deps]
+"""
 
 # ╔═╡ Cell order:
 # ╟─1e960b8c-26ba-11ef-25f9-5b341174f190
@@ -222,7 +254,10 @@ end
 # ╠═b10e42b9-f0cd-40d6-9638-1fb206c9f6e8
 # ╟─fc968c44-e175-4c81-a4a7-f8b191b42288
 # ╠═f6767d55-ebaa-4d72-80eb-49f0d4643c13
+# ╠═d3f96eb8-6f14-4926-a596-c462b7fc2eb7
 # ╟─9288a8f1-8644-46db-b0c0-a94ef801eb9d
 # ╟─e1dde0b7-0c50-4cb6-b79d-8560dbed90d5
 # ╠═02e92886-6053-485b-9515-4429e3cd9777
 # ╟─a07f6902-cb19-4f45-ac4c-97e0d365719d
+# ╟─00000000-0000-0000-0000-000000000001
+# ╟─00000000-0000-0000-0000-000000000002
